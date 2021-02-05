@@ -15,7 +15,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.kafka.test.context.EmbeddedKafka;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.prokarma.assignment.consumer.domain.AuditLog;
+import com.prokarma.assignment.consumer.entity.AuditLog;
 import com.prokarma.assignment.consumer.repository.AuditLogRepository;
 import com.prokarma.assignment.consumer.service.DefaultCustomerService;
 import com.prokarma.assignment.publisher.customer.kafka.domain.KafkaCustomerRequest;

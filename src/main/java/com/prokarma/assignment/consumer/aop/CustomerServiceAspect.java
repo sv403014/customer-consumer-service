@@ -7,8 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import com.prokarma.assignment.consumer.domain.ErrorLog;
+import com.prokarma.assignment.consumer.entity.ErrorLog;
 import com.prokarma.assignment.consumer.repository.ErrorLogRepository;
 import com.prokarma.assignment.publisher.customer.kafka.domain.KafkaCustomerRequest;
 

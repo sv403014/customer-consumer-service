@@ -4,6 +4,6 @@ import com.prokarma.assignment.publisher.customer.kafka.domain.KafkaCustomerRequ
 
 public interface CustomerService {
 
-    public void invokeCustomerService(KafkaCustomerRequest kafkaCustomerRequest);
+    public boolean invokeCustomerService(KafkaCustomerRequest kafkaCustomerRequest);
 
 }

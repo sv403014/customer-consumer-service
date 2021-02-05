@@ -18,8 +18,12 @@ public class CustomerConsumerService {
     @Autowired
     private CustomerService customerService;
 
-    @KafkaListener(containerFactory = "kafkaListenerContainerFactory", topics = "${producer.topic}",
-            groupId = "${consumer.group-id}")
+    /*
+     * @KafkaListener(containerFactory = "kafkaListenerContainerFactory", topics =
+     * "${producer.topic}", groupId = "${consumer.group-id}")
+     */
+    @KafkaListener(containerFactory = "kafkaListenerContainerFactory", topics = "${cloudkarafka.topic}",
+            groupId = "${cloudkarafka.group-id}")
     public void getTopics(KafkaCustomerRequest kafkaCustomerRequest) {
         long startingTime = System.currentTimeMillis();
         defaultCustomerConsumerConverter.convert(kafkaCustomerRequest);

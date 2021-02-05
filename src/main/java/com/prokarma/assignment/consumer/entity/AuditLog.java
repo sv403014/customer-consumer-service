@@ -1,4 +1,4 @@
-package com.prokarma.assignment.consumer.domain;
+package com.prokarma.assignment.consumer.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,25 +9,22 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import com.prokarma.assignment.publisher.customer.kafka.domain.KafkaCustomerRequest;
-import com.vladmihalcea.hibernate.type.json.JsonStringType;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 
 @Entity
-@Table(name = "ERROR_LOG")
-@TypeDef(name = "json", typeClass = JsonStringType.class)
-public class ErrorLog {
+@Table(name = "AUDIT_LOG")
+@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
+public class AuditLog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "error_type")
-    private String errorType;
+    @Column(name = "customer_number")
+    private String customerNumber;
 
-    @Column(name = "error_description")
-    private String errorDescription;
-
-    @Type(type = "json")
-    @Column(columnDefinition = "json")
+    @Type(type = "jsonb")
+    @Column(columnDefinition = "jsonb")
     private KafkaCustomerRequest payload;
 
     public Long getId() {
@@ -38,20 +35,12 @@ public class ErrorLog {
         this.id = id;
     }
 
-    public String getErrorType() {
-        return errorType;
+    public String getCustomerNumber() {
+        return customerNumber;
     }
 
-    public void setErrorType(String errorType) {
-        this.errorType = errorType;
-    }
-
-    public String getErrorDescription() {
-        return errorDescription;
-    }
-
-    public void setErrorDescription(String errorDescription) {
-        this.errorDescription = errorDescription;
+    public void setCustomerNumber(String customerNumber) {
+        this.customerNumber = customerNumber;
     }
 
     public KafkaCustomerRequest getPayload() {
@@ -61,7 +50,6 @@ public class ErrorLog {
     public void setPayload(KafkaCustomerRequest payload) {
         this.payload = payload;
     }
-
 
 
 }
